@@ -1,25 +1,18 @@
 #!/bin/bash
-set -u
+set -eu
+
+mydir=`dirname "$0"`
+mydir=`readlink -e "$mydir"`
 
 FILL_COLOR="100%,100%,100%"
 STROKE_COLOR="0,0,0"
 STROKE_ALFA=0.6
 FILL_ALFA=0.45
-FONT='./fonts/ComicRelief.ttf'
-
-
-TARGET_DIR="/tmp/preprint/annotated"
-SOURCE_DIR="/tmp/preprint/src"
-OVERWRITE_EXISTING=1
-
-source ../utils/utils.inc.sh
-
+FONT="$mydir/./fonts/ComicRelief.ttf"
 
 annotateFile() {
 	local file="$1"
-	local fileName="`basename "$file"`"
-    local newFileName="${fileName%.*}_annotated.${fileName##*.}"
-    local newFile="$TARGET_DIR/$newFileName"
+    local newFile="$2"
 	local dateExif="$(exiftool -s3 -d "%d.%m.%Y" -EXIF:DateTimeOriginal "$file")"
 	local orientation="0$(exiftool -s3 -EXIF:Orientation "$file" | grep -o '[0-9]*')"
     local stroke="rgba($STROKE_COLOR,$STROKE_ALFA)"
@@ -73,16 +66,6 @@ renderAnnotation() {
         "$newFile"
 #        - | display -resize 750x500 -auto-orient -geometry +$x+$y - &
 }
-
-
-echo -e "SOURCE_DIR: $SOURCE_DIR\nTARGET_DIR: $TARGET_DIR\n"
-
-[ ! -d "$SOURCE_DIR" ] && (echo "error: SOURCE_DIR doesn't exist"; exit 1)
-[ ! -d "$TARGET_DIR" ] && mkdir "$TARGET_DIR"
-
-forEachFileIn "find '$SOURCE_DIR' -iname '*.jpg'" annotateFile
-
-
 
 
 
