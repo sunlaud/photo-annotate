@@ -3,8 +3,8 @@ set -u
 
 FILL_COLOR="100%,100%,100%"
 STROKE_COLOR="0,0,0"
-STROKE_ALFA=0.5
-FILL_ALFA=0.5
+STROKE_ALFA=0.6
+FILL_ALFA=0.45
 FONT='./fonts/ComicRelief.ttf'
 
 
@@ -36,10 +36,10 @@ annotateFile() {
 	    local longSide=$height
 	fi
 
-	local pts=$[(longSide+64/2)/64]   # calculate font size proportional to image size (division with round to nearest)
-	local strokeWidth=$[(pts+8/2)/8] # division with round to nearest
-	local toSide=$[(longSide+70/2)/70]
-	local toBottom=$[(longSide+40/2)/40]
+	local pts=$[(longSide+70/2)/70]   # calculate font size proportional to image size (division with round to nearest)
+	local strokeWidth=$[(pts+18/2)/18] # division with round to nearest
+	local toSide=$[(longSide+46/2)/46]
+	local toBottom=$[(longSide+54/2)/54]
 
     y=$toBottom
     x=$toSide
