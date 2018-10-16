@@ -27,7 +27,6 @@ annotateFile() {
 	local gravity=SouthEast
 	#~ [ $orientation -eq 270 ] && gravity=SouthWest || gravity=SouthEast
 	local annotation="$dateExif"
-	#annotation="Львів, $dateExif"
 
 	local height=`identify -format "%[height]" "$file"`
 	local width=`identify -format "%[width]" "$file"`
@@ -50,12 +49,6 @@ annotateFile() {
         printf "${cl}file $newFile exists - skipping\n"
     else
         renderAnnotation "$file" "$newFile" "$annotation"
-#         test various combinations of annotation configs
-#         for var in '../fonts/UNIVERSALFRUITCAKE.ttf' '../fonts/with_cyrrilic/ComicRelief.ttf' '../fonts/with_cyrrilic/FHABGBSTNC.ttf' '../fonts/with_cyrrilic/MewTooHandBdIta.otf' '../fonts/with_cyrrilic/JustBreatheBd.otf' '../fonts/with_cyrrilic/JustBreathe.otf' '../fonts/with_cyrrilic/Gecko_PersonalUseOnly.ttf' '../fonts/with_cyrrilic/beer money.ttf'; do
-#             FONT=$var
-#             y=$[$y+45]
-#             renderAnnotation "$newFile" "$newFile" "$var $annotation"
-#         done
     fi
 }
 
@@ -65,7 +58,7 @@ renderAnnotation() {
     local newFile="$2"
     local annotation="$3"
 
-    echo -e "\ni=$i, stroke=$stroke, fill=$fill, orientation=$orientation,\n longSide=$longSide,\n pts=$pts,\n x=$x, y=$y\n width=$width, height=$height\n stroke_width=$strokeWidth\n==================\n"
+#     echo -e "\ni=$i, stroke=$stroke, fill=$fill, orientation=$orientation,\n longSide=$longSide,\n pts=$pts,\n x=$x, y=$y\n width=$width, height=$height\nstroke_width=$strokeWidth\n==================\n"
 
     convert "$file" \
         -rotate $orientation \
