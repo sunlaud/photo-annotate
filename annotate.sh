@@ -5,15 +5,8 @@ FILL_COLOR="100%,100%,100%"
 STROKE_COLOR="0,0,0"
 STROKE_ALFA=0.5
 FILL_ALFA=0.5
-FONT='../fonts/with_cyrrilic/ComicRelief.ttf'
-# FONT='../fonts/UNIVERSALFRUITCAKE.ttf'
-# FONT='../fonts/with_cyrrilic/ComicRelief.ttf'
-# FONT='../fonts/with_cyrrilic/FHABGBSTNC.ttf'
-# FONT='../fonts/with_cyrrilic/MewTooHandBdIta.otf'
-# FONT='../fonts/with_cyrrilic/JustBreatheBd.otf'
-# FONT='../fonts/with_cyrrilic/JustBreathe.otf'
-# FONT='../fonts/with_cyrrilic/Gecko_PersonalUseOnly.ttf'
-# FONT='../fonts/with_cyrrilic/beer money.ttf'
+FONT='./fonts/ComicRelief.ttf'
+
 
 TARGET_DIR="/tmp/preprint/annotated"
 SOURCE_DIR="/tmp/preprint/src"
