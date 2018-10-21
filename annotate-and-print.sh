@@ -10,6 +10,11 @@ OVERWRITE_EXISTING=1
 mydir=`dirname "$0"`
 mydir=`readlink -e "$mydir"`
 
+#hack for launching inside XnView
+export TERM=xtermm
+export LD_LIBRARY_PATH="/usr/lib:$LD_LIBRARY_PATH"
+
+
 source "$mydir/../utils/utils.inc.sh"
 source "$mydir/./annotate.inc.sh"
 
