@@ -6,8 +6,8 @@ mydir=`readlink -e "$mydir"`
 
 FILL_COLOR="100%,100%,100%"
 STROKE_COLOR="0,0,0"
-STROKE_ALFA=0.6
-FILL_ALFA=0.45
+STROKE_ALFA=0.75
+FILL_ALFA=0.50
 FONT="$mydir/./fonts/ComicRelief.ttf"
 
 annotateFile() {
