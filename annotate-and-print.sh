@@ -19,12 +19,14 @@ source "$mydir/../utils/utils.inc.sh"
 source "$mydir/./annotate.inc.sh"
 
 
-annotateAndPrint(){
+enchanceAnnotateAndPrint(){
     local file="$1"
     local fileName="`basename "$file"`"
     local newFileName="${fileName%.*}_annotated.${fileName##*.}"
     local newFile="$TARGET_DIR/$newFileName"
     annotateFile "$file" "$newFile"
+    aaphoto -a --overwrite "$newFile"
+
     lp -d EPSON_L805/photo_10x15 -o PageSize=100x148mm "$newFile"
 }
 
@@ -32,4 +34,4 @@ annotateAndPrint(){
 [ ! -d "$TARGET_DIR" ] && mkdir "$TARGET_DIR"
 echo -e "TARGET_DIR: $TARGET_DIR\n"
 
-forEachFileDoWithDialog annotateAndPrint $@
+forEachFileDoWithDialog enchanceAnnotateAndPrint $@
