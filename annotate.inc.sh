@@ -32,7 +32,11 @@ annotateFile() {
 	local pts=$[(longSide+70/2)/70]   # calculate font size proportional to image size (division with round to nearest)
 	local strokeWidth=$[(pts+18/2)/18] # division with round to nearest
 	local toSide=$[(longSide+46/2)/46]
-	local toBottom=$[(longSide+54/2)/54]
+	if [ $orientation -eq 0 ]; then
+		local toBottom=$[(longSide+54/2)/54]
+	else
+		local toBottom=$[(longSide+32/2)/32]
+	fi
 
     y=$toBottom
     x=$toSide
