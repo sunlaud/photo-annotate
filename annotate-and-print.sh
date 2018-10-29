@@ -22,12 +22,15 @@ source "$mydir/./annotate.inc.sh"
 enchanceAnnotateAndPrint(){
     local file="$1"
     local fileName="`basename "$file"`"
-    local newFileName="${fileName%.*}_annotated.${fileName##*.}"
-    local newFile="$TARGET_DIR/$newFileName"
-    annotateFile "$file" "$newFile"
-    aaphoto -a --overwrite "$newFile"
+    local enchancedFileName="${fileName%.*}_new.${fileName##*.}"    #aaphoto appends "_new" to filename
+    local annotatedFileName="${fileName%.*}_annotated.${fileName##*.}"
+    local annotatedFile="$TARGET_DIR/$annotatedFileName"
+    local enchancedFile="$TARGET_DIR/$enchancedFileName"
 
-    lp -d EPSON_L805/photo_10x15 -o PageSize=100x148mm "$newFile"
+    [ -e "$enchancedFile" ] && rm "$enchancedFile"
+    aaphoto -a -o "$TARGET_DIR" "$file"
+    annotateFile "$enchancedFile" "$annotatedFile"
+    lp -d EPSON_L805/photo_10x15 -o PageSize=100x148mm "$annotatedFile"
 }
 
 
