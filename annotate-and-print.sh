@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eu
 LOG_FILE="/tmp/annotate-and-print.log"
-exec 2> $LOG_FILE > $LOG_FILE
+exec > $LOG_FILE 2>&1
 echo "" > $LOG_FILE
 
 TARGET_DIR="/tmp/preprint/annotated"
