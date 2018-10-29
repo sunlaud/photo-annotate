@@ -6,7 +6,7 @@ mydir=`readlink -e "$mydir"`
 
 FILL_COLOR="100%,100%,100%"
 STROKE_COLOR="0,0,0"
-STROKE_ALFA=0.75
+STROKE_ALFA=0.80
 FILL_ALFA=0.50
 FONT="$mydir/./fonts/ComicRelief.ttf"
 
