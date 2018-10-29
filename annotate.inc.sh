@@ -55,7 +55,7 @@ renderAnnotation() {
     local newFile="$2"
     local annotation="$3"
 
-#     echo -e "\ni=$i, stroke=$stroke, fill=$fill, orientation=$orientation,\n longSide=$longSide,\n pts=$pts,\n x=$x, y=$y\n width=$width, height=$height\nstroke_width=$strokeWidth\n==================\n"
+    echo -e "\twidth=$width, height=$height, orientation=$orientation\n\tpts=$pts, stroke_width=$strokeWidth\n\tx=$x, y=$y, longSide=$longSide\n\tstroke=$stroke, fill=$fill"
 
     convert "$file" \
         -rotate $orientation \
